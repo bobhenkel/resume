@@ -1,0 +1,14 @@
+on: release
+name: Handle Release
+jobs:
+  upload:
+    name: Upload Artifacts
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - name: Upload
+      uses: skx/github-action-publish-binaries@bcfbeb56856463b646384c603a974a78441d9307
+      env:
+        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+      with:
+        args: 'bob-henkel_resume.*'
