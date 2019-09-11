@@ -15,9 +15,8 @@ jobs:
     - name: Generate html resume
       run: |
         pandoc bob-henkel_resume.md -f markdown -t html -s -o bob-henkel_resume.html
-    - name: Upload
-      uses: skx/github-action-publish-binaries@bcfbeb56856463b646384c603a974a78441d9307
-      env:
-        GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+    - name: Upload Artifact
+      uses: actions/upload-artifact@e20a7983ecacb840d6004bbaa6dd6f75eaff8af7
       with:
-        args: 'bob-henkel_resume.*'        
+        name: bob-henkel_resume_html
+        path: bob-henkel_resume.html        
