@@ -1,0 +1,22 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v1
+    - name: Setup Build Environment
+      run: |
+        sudo apt-get install pandoc
+    - name: Generate html resume
+      run: |
+        pandoc bob-henkel_resume.md -f markdown -t html -s -o bob-henkel_resume.html
+    - name: Upload Artifact
+      uses: actions/upload-artifact@e20a7983ecacb840d6004bbaa6dd6f75eaff8af7
+      with:
+        name: bob-henkel_resume_html
+        path: bob-henkel_resume.html        
