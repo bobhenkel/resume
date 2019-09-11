@@ -12,8 +12,6 @@ jobs:
     - name: Setup Build Environment
       run: |
         sudo apt-get install pandoc
-    - name: Run a one-line script
-      run: echo Hello, world!
     - name: Run a multi-line script
       run: |
         echo Add other actions to build,
