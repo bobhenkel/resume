@@ -12,7 +12,7 @@ jobs:
     - name: Setup Build Environment
       run: |
         sudo apt-get install pandoc
-    - name: Run a multi-line script
+    - name: Generate html resume
       run: |
-        ls -la
-        pwd
+        pandoc bob-henkel_resume.md -f markdown -t html -s -o bob-henkel_resume.html
+        
